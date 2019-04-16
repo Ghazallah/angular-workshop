@@ -1,0 +1,29 @@
+<div>
+  <h1>{{name}} tasks <span>{{getPendingTaskCount()}}</span></h1>
+</div> 
+
+<div>
+  <input #inputTitle (keyup.enter) ="addNewTask(inputTitle.value);inputTitle.value=''" type = "text" placeholder="new task">
+  <button class = "btn btn-primary" (click) ="addNewTask(inputTitle.value);inputTitle.value=''" >Add</button>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Task</th>
+          <th scope="col">status</th>
+          <th scope="col">--</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf ="tasks.length==0">
+          <td colspan="8">no pending tasks</td>
+        </tr>
+        <tr *ngFor ="let task of tasks;let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{task.title}}</td>
+          <td><input (change) = "changeStatus(i)" type="checkbox"></td>
+          <td><button (click) = "delete(i)" class ="btn btn-danger">delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>

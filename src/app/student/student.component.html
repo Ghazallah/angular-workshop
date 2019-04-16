@@ -1,0 +1,6 @@
+<label>first name <input  #inputFirstName (keyup) = "setFirstName(inputFirstName.value)" value ="{{student.firstName}}" type="text"></label>
+<br>
+<label>last name  <input  #inputLastName (keyup) = "setLastName(inputLastName.value)" value = "{{student.lastName}}" type = "text"></label>
+<p>{{getFullName()}}</p>
+<p>number of students = {{students.length}}</p>
+<button #btn (click) ="addStudent(inputFirstName.value,inputLastName.value)">Add Student</button>
